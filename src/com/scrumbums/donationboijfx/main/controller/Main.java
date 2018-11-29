@@ -11,6 +11,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     private static Stage stage;
+    private static Scene scene;
 
     public static void main(String[] args) {
         launch(args);
@@ -20,12 +21,16 @@ public class Main extends Application {
         return stage;
     }
 
+    public static Scene getScene() {
+        return scene;
+    }
+
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent entryScreen = FXMLLoader.load(getClass().getClassLoader().getResource("EntryScreen.fxml"));
-        primaryStage.setTitle("Donation Boi");
         stage = primaryStage;
-        Scene scene = new Scene(entryScreen,400, 600);
+        Parent entryScreen = FXMLLoader.load(getClass().getClassLoader().getResource("EntryScreen.fxml"));
+        scene = new Scene(entryScreen);
+        primaryStage.setTitle("Donation Boi");
         primaryStage.setScene(scene);
         primaryStage.show();
 

@@ -5,8 +5,12 @@ import com.scrumbums.donationboijfx.main.model.entities.Item;
 import com.scrumbums.donationboijfx.main.model.entities.Store;
 import com.scrumbums.donationboijfx.main.model.entities.User;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
 
 
 /**
@@ -17,21 +21,25 @@ import java.util.List;
  * @author jdierberger3
  */
 public final class DatabaseAbstraction {
-    /**
-     * do not use.
-     */
-    private DatabaseAbstraction() { }
+    public static Set<User> users = new HashSet<>();
+    public static Set<Store> stores = new HashSet<>();
+    public static User loggedIn = null;
 
     /**
      * Attempt to login with the given credentials.
-     * @param context The current application context
      * @param email The email of the user.
      * @param password The password of the user.
      * @return 1 if the given credentials are valid, 0 if the password is
      * invalid, or -1 if the username is invalid.
      */
-    public static User login(String email, String password) {
-        return null;
+    public static boolean login(String email, String password) {
+        Optional<User> user = users.stream().filter(u -> Objects.equals(u.getEmail(), email)
+                && Objects.equals(u.getPassword(), password)).findAny();
+        if (user.isPresent()) {
+            loggedIn = user.get();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -41,7 +49,12 @@ public final class DatabaseAbstraction {
      *         or error otherwise.
      */
     public static boolean register(final User user) {
-        return false;
+        if(users.stream().anyMatch(u -> Objects.equals(u.getEmail(), user.getEmail())
+                && Objects.equals(u.getPassword(), user.getEmail()))) {
+            return false;
+        }
+        users.add(user);
+        return true;
     }
 
     /**
@@ -75,7 +88,6 @@ public final class DatabaseAbstraction {
     /**
      * Logs the user out of the application
      *
-     * @param context The current application context
      */
     public static void logout() {
 
