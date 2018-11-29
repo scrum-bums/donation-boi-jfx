@@ -18,6 +18,12 @@ public class StoreList implements Initializable {
     @FXML
     private ListView<Store> list;
 
+    private static Store sel;
+
+    public static Store getSel() {
+        return sel;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         logoutButton.setOnAction(e -> {
@@ -28,7 +34,8 @@ public class StoreList implements Initializable {
         list.setItems(FXCollections.observableArrayList(DatabaseAbstraction.stores));
 
         list.setOnMouseClicked(v -> {
-            System.out.println("clicked on" + list.getSelectionModel().getSelectedItem());
+            sel = list.getSelectionModel().getSelectedItem();
+            Main.setScene("StoreDetail.fxml");
         });
 
     }
