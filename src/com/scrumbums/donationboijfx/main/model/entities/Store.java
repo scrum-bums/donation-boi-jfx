@@ -45,8 +45,8 @@ public class Store {
      * @param phoneNumber This store's phone number.
      * @param website     This store's website.
      */
-    private Store(String name, Location location, String phoneNumber, String website,
-                  String locationType) {
+    public Store(String name, Location location, String phoneNumber, String website,
+                 String locationType) {
         this.inventory = new ArrayList();
         this.name = name;
         this.phoneNumber = phoneNumber;

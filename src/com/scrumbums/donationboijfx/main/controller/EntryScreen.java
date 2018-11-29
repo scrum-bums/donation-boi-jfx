@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,13 +28,9 @@ public class EntryScreen implements Initializable {
     public void initialize(URL url, ResourceBundle res) {
         Stage stage = Main.getStage();
         loginButton.setOnAction(e -> {
-            try {
-                 entryScreen = FXMLLoader.load(getClass().getClassLoader().getResource("LoginScreen.fxml"));
-            } catch (IOException io) {
-                System.out.println("This shouldn't happen");
-            }
-            stage.setScene(new Scene(entryScreen, 600, 400));
+            Main.setScene("LoginScreen.fxml");
         });
+        registerButton.setOnAction(e -> Main.setScene("RegisterScreen.fxml"));
     }
 
 

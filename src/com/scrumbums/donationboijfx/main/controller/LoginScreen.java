@@ -1,5 +1,6 @@
 package com.scrumbums.donationboijfx.main.controller;
 
+import com.scrumbums.donationboijfx.main.model.util.DatabaseAbstraction;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -33,18 +34,13 @@ public class LoginScreen implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loginButton.setOnAction(actionEvent -> {
-            System.out.println("login pressed");
-        });
-
-        backButton.setOnAction(actionEvent -> {
-            try {
-                Main.getStage()
-                        .setScene(new Scene(FXMLLoader.load(getClass().getClassLoader().getResource("EntryScreen.fxml")),
-                                600, 400));
-            } catch (IOException e) {
-                System.out.println("This shouldn't happen.");
+            if (DatabaseAbstraction.login(emailField.getText(), passField.getText())) {
+                System.out.println("login success");
+                Main.setScene("StoreList.fxml");
             }
         });
+
+        backButton.setOnAction(actionEvent -> Main.setScene("EntryScreen.fxml"));
 
     }
 }
