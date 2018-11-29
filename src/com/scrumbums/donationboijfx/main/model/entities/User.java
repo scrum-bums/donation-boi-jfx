@@ -1,7 +1,7 @@
-package com.scrumbums.donationboijfx.model.entities;
+package com.scrumbums.donationboijfx.main.model.entities;
 
 
-import com.scrumbums.donationboijfx.model.UserRole;
+import com.scrumbums.donationboijfx.main.model.UserRole;
 
 
 

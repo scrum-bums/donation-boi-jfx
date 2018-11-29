@@ -1,4 +1,4 @@
-package com.scrumbums.donationboijfx.model.entities;
+package com.scrumbums.donationboijfx.main.model.entities;
 
 
 

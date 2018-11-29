@@ -1,4 +1,4 @@
-package com.scrumbums.donationboijfx.model;
+package com.scrumbums.donationboijfx.main.model;
 
 
 /**

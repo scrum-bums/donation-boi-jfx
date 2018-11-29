@@ -1,9 +1,9 @@
-package com.scrumbums.donationboijfx.model.util;
+package com.scrumbums.donationboijfx.main.model.util;
 
 
-import com.scrumbums.donationboijfx.model.entities.Item;
-import com.scrumbums.donationboijfx.model.entities.Store;
-import com.scrumbums.donationboijfx.model.entities.User;
+import com.scrumbums.donationboijfx.main.model.entities.Item;
+import com.scrumbums.donationboijfx.main.model.entities.Store;
+import com.scrumbums.donationboijfx.main.model.entities.User;
 
 import java.util.List;
 

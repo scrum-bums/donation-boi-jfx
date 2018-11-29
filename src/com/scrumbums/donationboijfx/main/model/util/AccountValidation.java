@@ -1,4 +1,4 @@
-package com.scrumbums.donationboijfx.model.util;
+package com.scrumbums.donationboijfx.main.model.util;
 
 /**
  * Validates account credentials.
